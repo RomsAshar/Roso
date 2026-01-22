@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Réseau Social</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; display: flex; flex-direction: column; align-items: center; }
+        #feed { width: 400px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #1877f2; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .post { border-bottom: 1px solid #eee; padding: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur Mon Site</h1>
+    <div id="feed">
+        <input type="text" id="postInput" placeholder="Quoi de neuf ?">
+        <button onclick="ajouterPost()">Publier</button>
+        <div id="posts"></div>
+    </div>
+
+    <script>
+        function ajouterPost() {
+            const texte = document.getElementById('postInput').value;
+            if(texte) {
+                const div = document.createElement('div');
+                div.className = 'post';
+                div.innerText = texte;
+                document.getElementById('posts').prepend(div);
+                document.getElementById('postInput').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
